@@ -41,7 +41,31 @@ location / {
 }
 ```
 
+6. Enable as daemon
+
+```
+# /srv/jupyterlab/jupyterlab.service
+[Unit]
+Description=Jupyter Lab
+
+[Service]
+Type=simple
+PIDFile=/run/jupyter.pid
+Environment=WORKING_DIRECTORY=/srv/jupyterlab/notebook
+ExecStart=/bin/bash -c ". /srv/jupyterlab/venv/bin/activate;jupyter lab --allow-root --no-browser --ip='0.0.0.0' --port=8888 --notebook-dir=$WORKING_DIRECTORY"
+User=root
+Group=root
+WorkingDirectory=/srv/jupyterlab
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+```
+
 
 # Reference
 
 1. [Jupyter notebook as a service on Ubuntu 18.04 with Python 3](https://naysan.ca/2019/09/07/jupyter-notebook-as-a-service-on-ubuntu-18-04-with-python-3/)
+
+2. [IPython: Blocking Cross Origin API request](https://github.com/twosigma/beakerx/issues/1963#issuecomment-334721791)
