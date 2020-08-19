@@ -1,8 +1,10 @@
 1. Get a server from cloud provider 
 
-2. Install JupyterLab
+2. Prepare jupyterlab environment
 
 ``` bash
+python3 -m venv ./venv
+source ./venv/bin/activate
 pip3 install jupyterlab
 ```
 
