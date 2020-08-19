@@ -15,6 +15,13 @@ jupyter notebook password
 jupyter lab --generate-config
 ```
 
+3. Enable cross origin access
+
+```
+# /path/to/jupyter_notebook_config.py
+c.NotebookApp.allow_origin = '*'
+```
+
 3. Start 
 
 ``` bash
