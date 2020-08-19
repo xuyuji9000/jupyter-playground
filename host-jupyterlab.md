@@ -1,32 +1,27 @@
 1. Get a server from cloud provider 
 
-2. Prepare jupyterlab environment
+2. Prepare jupyterlab 
 
 ``` bash
+# Prepare environment
 python3 -m venv ./venv
 source ./venv/bin/activate
 pip3 install jupyterlab
-```
 
-3. Use password instead of token for accessing service
-
-``` bash
+# Use password instead of token for accessing service
 jupyter notebook password
-```
 
-4. Generate configuration 
-
-``` bash
+# Generate configuration 
 jupyter lab --generate-config
 ```
 
-5. Start 
+3. Start 
 
 ``` bash
 jupyter lab --allow-root --no-browser --ip="0.0.0.0"
 ```
 
-5. Nginx configuration
+4. Nginx configuration
 
 ```
 location / {
@@ -43,7 +38,7 @@ location / {
 }
 ```
 
-6. Enable as daemon
+5. Enable as daemon
 
 ```
 # /srv/jupyterlab/jupyterlab.service
